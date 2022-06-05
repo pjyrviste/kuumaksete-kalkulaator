@@ -1,0 +1,393 @@
+/* --- DESKTOP --- */
+
+:root {
+    --primary-color: #34B233;
+    --main-bg-color: #ECF6FA;
+    --text-color: #333333;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
+
+body {
+    background-color: var(--main-bg-color);
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-color);
+}
+
+#root {
+    max-width: 1140px;
+    padding: 50px 100px 20px 100px;
+    margin: 60px auto 20px auto;
+    background-color: white;
+    border-radius: 10px;
+}
+
+#root.blurred {
+    filter: blur(4px);
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.column {
+    flex: 40%;
+    margin-right: 30px;
+}
+
+.column:last-child {
+    margin-right: 0;
+}
+
+table {
+    width: 100%;
+    border-spacing: 0;
+}
+
+tr {
+    line-height: 1.6rem;
+}
+
+tr:nth-child(odd) {
+    background-color: white;
+}
+
+tr:nth-child(even) {
+    background-color: rgba(236, 246, 250, 0.5);
+}
+
+tr:last-child {
+    background-color: var(--main-bg-color);
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+td {
+    padding: 2px 10px;
+}
+
+td.numbers {
+    text-align: right;
+}
+
+h1 {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+li {
+    flex: 1
+}
+
+div.price-labels {
+    width: 100%;
+    margin-top: 10px;
+}
+
+li#min-price {
+    text-align: left;
+    font-size: 0.8rem;
+    line-height: 1.5rem;
+}
+
+li#current-price {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.1rem;
+    line-height: 1.5rem;
+    color: var(--primary-color);
+}
+
+li#max-price {
+    text-align: right;
+    font-size: 0.8rem;
+    line-height: 1.5rem;
+}
+
+.button {
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 25px;
+    color: white;
+    padding: 10px 30px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+    cursor: pointer;
+    display: block;
+    margin: 40px auto 30px auto;
+    transform: scale(1);
+    transition: 300ms ease-in-out;
+}
+
+.button:hover {
+    background-color: #17921F;
+    transform: scale(1.1);
+}
+
+select#period, input#initial-payment {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 0.9rem;
+    border-radius: 5px;
+    border-width: thin;
+}
+
+.spacer {
+    margin-bottom: 30px;
+}
+
+.error {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+/* --- CHECKBOXES --- */
+
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 25px;
+}
+
+.container {
+    display: block;
+    position: relative;
+    margin-right: 20px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    padding: 55px 10px 10px 10px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 16px;
+    background-color: #F9F9F9;
+    flex-basis: 20%;
+    flex-grow: 0;
+    text-align: center;
+}
+
+.container:last-child {
+    margin-right: 0;
+}
+
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 20px;
+    left: calc(50% - 12px);
+    height: 25px;
+    width: 25px;
+    background-color: #C1F4C5;
+    border-radius: 4px;
+    transition: 0.5s ease;
+}
+
+.container:hover input ~ .checkmark {
+    background-color: var(--primary-color);
+}
+
+.container input:checked ~ .checkmark {
+    background-color: var(--primary-color);
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+
+/* --- SLIDER --- */
+
+.slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 10px;
+    border-radius: 5px;  
+    background: #D3D3D3;
+    outline: none;
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%; 
+    background: var(--primary-color);
+    cursor: pointer;
+    transition: 0.5s ease;
+}
+
+.slider::-webkit-slider-thumb:hover {
+    background-color: #17921F;
+}
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    cursor: pointer;
+    transition: 0.5s ease;
+}
+
+.slider::-moz-range-thumb {
+    background-color: #17921F;
+}
+
+/* --- POPUP --- */
+
+#popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 300ms ease-in-out;
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+    z-index: 100;
+    width: 500px;
+    max-width: 80%;
+}
+
+#popup.active {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.popup-header {
+    padding: 10px 15px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.popup-header .close-button {
+    cursor: pointer;
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.popup-body {
+    padding: 10px 15px;
+    height: 200px;
+}
+
+.popup-body h3 {
+    color: var(--primary-color);
+    text-align: center;
+    padding-top: 50px;
+}
+
+#overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    pointer-events: none;
+    transition: 300ms ease-in-out;
+}
+
+#overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* --- MOBILE --- */
+
+@media screen and (max-width: 767px) {
+    p {
+        padding-left: 5px;
+    }
+
+    .column {
+        flex: 80%;
+        margin: 5px;
+    }
+
+    .column:last-child {
+        margin-right: 5px;
+    }
+
+    #root {
+        padding: 50px 10px 10px 10px;
+        margin: 10px auto;
+    }
+
+    table {
+        margin-top: 20px;
+    }
+
+    div.wrapper {
+        flex-direction: column;
+    }
+
+    label.container {
+        margin-right: 0;
+        margin-bottom: 5px;
+    }
+}
+
+/* --- TABLET --- */
+
+@media screen and (min-device-width: 768px) 
+and (max-device-width: 1024px) {
+    #root {
+        padding: 50px 10px 10px 10px;
+        margin: 0 10px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-60%);
+    }
+}
