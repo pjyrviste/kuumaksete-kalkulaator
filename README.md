@@ -1,2 +1,4 @@
-# Kalkulaator
-Kuumaksete kalkulaator
+# Kuumaksete Kalkulaator
+
+Kalkulaator kuumaksete arvutamiseks
+(HTML + CSS + Vanilla JavaScript)
